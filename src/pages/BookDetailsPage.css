@@ -1,0 +1,392 @@
+.book-details-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 80vh;
+}
+
+/* Geri Dön Bölümü */
+.back-section {
+  margin-bottom: 30px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.back-link:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateX(-5px);
+}
+
+.back-link svg {
+  font-size: 1.1rem;
+}
+
+/* Kitap Detayları Container */
+.book-details-container {
+  display: flex;
+  gap: 40px;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  min-height: 600px;
+}
+
+/* Sol Taraf - Kitap Kapağı */
+.book-cover-section {
+  flex-shrink: 0;
+  width: 300px;
+}
+
+.book-cover-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.book-cover-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.book-cover-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.rating-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #333;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.star-icon {
+  color: #FFD700;
+  font-size: 1rem;
+}
+
+.rating-count {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* Sağ Taraf - Kitap Bilgileri */
+.book-info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.book-header {
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 20px;
+}
+
+.book-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+.book-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.author-icon {
+  color: #999;
+  font-size: 1.1rem;
+}
+
+/* Meta Bilgiler */
+.book-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.meta-icon {
+  color: #667eea;
+  font-size: 1rem;
+  width: 16px;
+}
+
+/* Kitap Açıklaması */
+.book-description {
+  flex: 1;
+}
+
+.book-description h3 {
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.book-description p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Sepete Ekle Bölümü */
+.add-to-cart-section {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.add-to-cart-button {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.add-to-cart-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.add-to-cart-button:active {
+  transform: translateY(-1px);
+}
+
+.add-to-cart-button svg {
+  font-size: 1.2rem;
+}
+
+/* Loading Container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.loading-spinner {
+  font-size: 3rem;
+  color: #667eea;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.loading-container h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Error Container */
+.error-container,
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.error-icon,
+.not-found-icon {
+  font-size: 4rem;
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+
+.not-found-icon {
+  color: #667eea;
+}
+
+.error-container h2,
+.not-found-container h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin: 0 0 15px 0;
+}
+
+.error-container p,
+.not-found-container p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0 0 30px 0;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .book-details-container {
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .book-cover-section {
+    width: 250px;
+  }
+  
+  .book-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-details-page {
+    padding: 15px;
+  }
+  
+  .book-details-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 25px;
+  }
+  
+  .book-cover-section {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .book-title {
+    font-size: 2rem;
+  }
+  
+  .book-meta {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .book-description p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-details-container {
+    padding: 20px;
+  }
+  
+  .book-title {
+    font-size: 1.8rem;
+  }
+  
+  .book-author {
+    font-size: 1.1rem;
+  }
+  
+  .book-meta {
+    padding: 15px;
+  }
+  
+  .meta-item {
+    font-size: 0.9rem;
+  }
+  
+  .add-to-cart-button {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+  
+  .error-container,
+  .not-found-container {
+    padding: 30px 20px;
+  }
+  
+  .error-icon,
+  .not-found-icon {
+    font-size: 3rem;
+  }
+  
+  .error-container h2,
+  .not-found-container h2 {
+    font-size: 1.5rem;
+  }
+} 
