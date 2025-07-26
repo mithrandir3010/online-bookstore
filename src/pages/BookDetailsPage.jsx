@@ -12,6 +12,7 @@ import {
   FaBook
 } from 'react-icons/fa';
 import { fetchBookById } from '../services/bookService';
+import { useCart } from '../context/CartContext';
 import './BookDetailsPage.css';
 
 const BookDetailsPage = () => {
@@ -19,6 +20,7 @@ const BookDetailsPage = () => {
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { addToCart, getItemQuantity } = useCart();
 
   useEffect(() => {
     loadBookDetails();
@@ -44,9 +46,39 @@ const BookDetailsPage = () => {
   };
 
   const handleAddToCart = () => {
-    // TODO: Context API ile sepet işlevselliği eklenecek
-    console.log('Sepete eklendi:', book?.volumeInfo?.title);
-    alert(`${book?.volumeInfo?.title} sepete eklendi!`);
+    if (book) {
+      addToCart(book);
+      // Başarı mesajı göster
+      const message = `${book.volumeInfo.title} sepete eklendi!`;
+      showNotification(message);
+    }
+  };
+
+  const showNotification = (message) => {
+    // Basit bir bildirim sistemi
+    const notification = document.createElement('div');
+    notification.className = 'cart-notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #27ae60;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => {
+        document.body.removeChild(notification);
+      }, 300);
+    }, 2000);
   };
 
   // Loading durumu
@@ -130,6 +162,9 @@ const BookDetailsPage = () => {
     ? description.replace(/<[^>]*>/g, '') // HTML tag'lerini temizle
     : 'Bu kitap için açıklama bulunmuyor.';
 
+  // Sepetteki miktar
+  const cartQuantity = getItemQuantity(book.id);
+
   return (
     <div className="book-details-page">
       {/* Geri Dön Butonu */}
@@ -209,18 +244,50 @@ const BookDetailsPage = () => {
             <p>{formattedDescription}</p>
           </div>
 
-          {/* Sepete Ekle Butonu */}
+          {/* Sepete Ekle Bölümü */}
           <div className="add-to-cart-section">
+            {cartQuantity > 0 && (
+              <div className="cart-quantity-info">
+                <span>Sepette: {cartQuantity} adet</span>
+              </div>
+            )}
             <button 
               onClick={handleAddToCart}
               className="add-to-cart-button"
             >
               <FaShoppingCart />
-              <span>Sepete Ekle</span>
+              <span>
+                {cartQuantity > 0 ? 'Sepete Ekle (+1)' : 'Sepete Ekle'}
+              </span>
             </button>
           </div>
         </div>
       </div>
+
+      {/* CSS Animasyonları için style tag */}
+      <style jsx>{`
+        @keyframes slideIn {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        
+        @keyframes slideOut {
+          from {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+        }
+      `}</style>
     </div>
   );
 };

@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome, FaShoppingCart, FaCreditCard } from 'react-icons/fa';
+import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 const Navbar = () => {
+  const { getTotalItems } = useCart();
+  const cartItemCount = getTotalItems();
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -22,6 +26,9 @@ const Navbar = () => {
             <Link to="/cart" className="nav-link">
               <FaShoppingCart className="nav-icon" />
               <span>Sepet</span>
+              {cartItemCount > 0 && (
+                <span className="cart-badge">{cartItemCount}</span>
+              )}
             </Link>
           </li>
           <li className="nav-item">
