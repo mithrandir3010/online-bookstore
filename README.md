@@ -4,8 +4,6 @@ Modern web teknolojileriyle geliştirilmiş, tam işlevsel bir **çevrimiçi kit
 
 ## 🚀 Canlı Demo
 
-🧪 (Henüz deploy edilmediyse bu kısmı daha sonra ekleyebilirsin.)
-
 ## 🛠️ Kullanılan Teknolojiler
 
 - ⚛️ React 18
@@ -25,7 +23,7 @@ npm install
 npm start
 
 
-🎯 Özellikler
+ Özellikler
 🏠 Ana Sayfa (HomePage)
 Kitap arama (isim/yazar)
 
@@ -74,9 +72,9 @@ src/
 ├── App.js               # Router tanımları
 ├── index.js             # Uygulama giriş noktası
 
-🤝 Katkıda Bulunmak
+Katkıda Bulunmak
 İyileştirme önerilerin veya katkıların varsa PR açabilirsin.
 Lütfen önce bir issue açarak önerini belirt.
 
-📌 Geliştirici: @mithrandir3010
+Geliştirici: @mithrandir3010
 ✨ Teşekkürler!
